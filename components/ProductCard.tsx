@@ -186,13 +186,14 @@ export function ProductCard({ product }: ProductCardProps) {
                 ease: [0.32, 0, 0.67, 0],
               }}
             >
-              <Image
-                src={product.image}
-                alt=""
-                width={100}
-                height={150}
-                className="object-contain drop-shadow-[0_4px_21px_rgba(255,255,255,0.5)]"
-              />
+            <Image
+              src={product.image}
+              alt=""
+              aria-hidden="true"
+              width={100}
+              height={150}
+              className="object-contain drop-shadow-[0_4px_21px_rgba(255,255,255,0.5)]"
+            />
             </motion.div>
           ))}
         </AnimatePresence>,
