@@ -30,20 +30,11 @@ export const metadata: Metadata = {
     siteName: 'Basement Supply',
     title: 'Basement Supply | Premium Streetwear',
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
-    images: [
-      {
-        url: '/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Basement Supply - Premium Streetwear',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Basement Supply | Premium Streetwear',
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
-    images: ['/og-image.svg'],
   },
   robots: {
     index: true,
