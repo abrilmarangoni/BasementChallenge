@@ -4,14 +4,18 @@ import { Marquee } from '@/components/Marquee'
 import { ProductGrid } from '@/components/ProductGrid'
 import { Footer } from '@/components/Footer'
 import { CartDrawer } from '@/components/CartDrawer'
+import { FloatingShapes } from '@/components/FloatingShapes'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen relative overflow-hidden">
         <Hero />
-        <Marquee />
+        <div className="relative">
+          <FloatingShapes />
+          <Marquee />
+        </div>
         <ProductGrid />
         <Footer />
       </main>
