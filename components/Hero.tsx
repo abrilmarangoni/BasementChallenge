@@ -14,15 +14,31 @@ export function Hero() {
           className="w-full flex flex-col"
           aria-hidden="true"
         >
-          {/* BASEMENT - Responsive, fills available width */}
-          <div 
-            className="font-basement text-white uppercase leading-none w-full"
-            style={{ 
-              fontSize: 'calc((100vw - 64px) / 6.5)',
-            }}
+          {/* BASEMENT - SVG that scales to fill width */}
+          <svg 
+            className="w-full h-auto"
+            viewBox="0 0 1376 170"
+            preserveAspectRatio="xMinYMin meet"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            BASEMENT
-          </div>
+            {/* B */}
+            <path transform="translate(0, 2)" d="M-0.725098 0V165.36H101.247C143.859 165.36 151.915 158.152 151.915 119.78V115.54C151.915 90.736 143.859 83.528 115.239 81.62C139.195 79.076 145.979 72.928 145.979 47.488V43.036C145.979 6.78401 138.983 0 101.247 0H-0.725098ZM43.7949 128.048V98.3679H88.7389C104.427 98.3679 107.395 100.7 107.395 113.42C107.395 125.292 104.427 128.048 88.7389 128.048H43.7949ZM43.7949 64.024V36.464H86.6189C99.127 36.464 101.459 38.796 101.459 50.456C101.459 61.692 99.127 64.024 86.6189 64.024H43.7949Z" fill="white"/>
+            {/* A */}
+            <path transform="translate(161, 2)" d="M129.108 0H57.028L0 165.36H48.76L57.876 133.136H124.232L134.62 165.36H185.5L129.108 0ZM68.264 97.0959L91.372 33.92H93.068L114.268 97.0959H68.264Z" fill="white"/>
+            {/* S */}
+            <path transform="translate(354, 0)" d="M46.64 113.42V111.3H0V113.42C0 161.544 11.872 170.448 80.984 170.448C148.188 170.448 159.425 162.816 159.425 122.96C159.425 90.1 155.184 82.892 132.076 76.532C117.661 72.504 106.001 69.96 80.984 65.084C54.06 61.268 47.7 58.936 47.7 50.456C47.7 38.584 52.789 36.04 80.984 36.04C106.848 36.04 110.876 39.644 110.876 57.24V59.36H157.516V57.24C157.516 8.90401 145.432 0 80.984 0C18.233 0 3.18002 9.96401 3.18002 46.004C3.18002 80.984 8.48001 88.616 36.252 95.188C58.512 100.276 66.78 102.184 80.984 104.516C107.061 109.604 114.904 111.936 114.904 121.052C114.904 132.288 109.18 134.408 80.984 134.408C52.364 134.408 46.64 131.864 46.64 113.42Z" fill="white"/>
+            {/* E */}
+            <path transform="translate(530, 2)" d="M0 0V165.36H135.468V127.2H44.52V99.6399H124.656V63.6H44.52V38.16H135.468V0H0Z" fill="white"/>
+            {/* M */}
+            <path transform="translate(685, 2)" d="M44.52 165.36V42.4H45.792L70.172 165.36H129.532L157.516 42.4H158.788V165.36H203.308V0H125.504L100.7 127.2H99.004L77.592 0H0V165.36H44.52Z" fill="white"/>
+            {/* E */}
+            <path transform="translate(907, 2)" d="M0 0V165.36H135.468V127.2H44.52V99.6399H124.658V63.6H44.52V38.16H135.468V0H0Z" fill="white"/>
+            {/* N */}
+            <path transform="translate(1061, 2)" d="M0 165.36H42.4V63.6H43.67L106 165.36H156.88V0H114.48V101.76H113.21L53 0H0V165.36Z" fill="white"/>
+            {/* T */}
+            <path transform="translate(1230, 2)" d="M50.67 165.36H95.1901V36.04H146.28V0H0V36.04H50.67V165.36Z" fill="white"/>
+          </svg>
           
           {/* SUPPLY row - Centered with ellipses */}
           <div className="relative flex items-center justify-center w-full mt-[10px]">
