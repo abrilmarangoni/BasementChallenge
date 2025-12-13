@@ -3,10 +3,10 @@ export function Hero() {
     <section
       className="relative"
       style={{
-        paddingTop: 'calc(100vw * 126 / 1440)',
-        paddingBottom: 'calc(100vw * 56 / 1440)',
-        paddingLeft: 'calc(100vw * 32 / 1440)',
-        paddingRight: 'calc(100vw * 32 / 1440)',
+        paddingTop: 'clamp(80px, calc(100vw * 126 / 1440), 180px)',
+        paddingBottom: 'clamp(32px, calc(100vw * 56 / 1440), 80px)',
+        paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 48px)',
+        paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 48px)',
       }}
       aria-labelledby="hero-title"
     >
@@ -47,7 +47,7 @@ export function Hero() {
           </svg>
           
           {/* SUPPLY row - Centered with ellipses */}
-          <div className="relative flex items-center justify-between w-full" style={{ marginTop: 'calc(100vw * 10 / 1440)' }}>
+          <div className="relative flex items-center justify-between w-full" style={{ marginTop: 'clamp(5px, calc(100vw * 10 / 1440), 15px)' }}>
             {/* Star Left - Mobile only */}
             <svg
               className="md:hidden w-[51px] h-[24px] mr-2 flex-shrink-0"
@@ -67,8 +67,8 @@ export function Hero() {
             <div 
               className="hidden md:flex items-center justify-center flex-shrink-0"
               style={{ 
-                width: 'calc(100vw * 152 / 1440)',
-                marginLeft: 'calc(100vw * 24 / 1440)'
+                width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
+                marginLeft: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
               }}
             >
               <svg
@@ -97,7 +97,7 @@ export function Hero() {
             <svg
               className="hidden md:block"
               style={{ 
-                width: 'calc(100vw * 992 / 1440)',
+                width: 'clamp(500px, calc(100vw * 992 / 1440), 1400px)',
                 height: 'auto'
               }}
               viewBox="0 0 992 175"
@@ -127,8 +127,8 @@ export function Hero() {
             <div 
               className="hidden md:flex items-center justify-center flex-shrink-0"
               style={{ 
-                width: 'calc(100vw * 152 / 1440)',
-                marginRight: 'calc(100vw * 24 / 1440)'
+                width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
+                marginRight: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
               }}
             >
               <svg

@@ -8,7 +8,7 @@ export function Header() {
   const itemCount = totalItems()
 
   return (
-    <header className="fixed left-0 right-0 z-50" style={{ top: 'calc(100vw * 33 / 1440)', paddingLeft: 'calc(100vw * 32 / 1440)', paddingRight: 'calc(100vw * 32 / 1440)' }}>
+    <header className="fixed left-0 right-0 z-50" style={{ top: 'clamp(20px, calc(100vw * 33 / 1440), 50px)', paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 48px)', paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 48px)' }}>
       <nav
         className="flex items-center justify-between w-full"
         role="navigation"
