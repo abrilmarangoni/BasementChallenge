@@ -5,7 +5,7 @@ export function FloatingShapes() {
     <>
       {/* Shape 1 - Left side, centered on BOTTOM border line */}
       <div 
-        className="absolute pointer-events-none z-20"
+        className="absolute pointer-events-none z-20 hidden md:block"
         style={{
           width: 'clamp(80px, calc(100vw * 160 / 1440), 200px)',
           height: 'auto',
@@ -66,7 +66,7 @@ export function FloatingShapes() {
 
       {/* Shape 2 - Right side, centered on TOP border line */}
       <div 
-        className="absolute pointer-events-none z-20"
+        className="absolute pointer-events-none z-20 hidden md:block"
         style={{
           width: 'clamp(72px, calc(100vw * 144 / 1440), 180px)',
           height: 'auto',
