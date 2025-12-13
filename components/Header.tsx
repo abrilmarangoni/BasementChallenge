@@ -1,14 +1,34 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { Logo } from './icons/Logo'
 import { useCartStore } from '@/store/cart'
 
 export function Header() {
   const { toggleCart, totalItems } = useCartStore()
   const itemCount = totalItems()
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="fixed left-0 right-0 z-50" style={{ top: 'clamp(20px, calc(100vw * 33 / 1440), 50px)', paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 48px)', paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 48px)' }}>
+    <header 
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black/90 backdrop-blur-sm py-3' : ''
+      }`}
+      style={{ 
+        top: isScrolled ? '0' : 'clamp(20px, calc(100vw * 33 / 1440), 50px)', 
+        paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 48px)', 
+        paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 48px)' 
+      }}
+    >
       <nav
         className="flex items-center justify-between w-full"
         role="navigation"
