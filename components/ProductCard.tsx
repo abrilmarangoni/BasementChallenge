@@ -19,8 +19,10 @@ export function ProductCard({ product }: ProductCardProps) {
     addItem({
       id: product.id,
       name: product.name,
+      description: product.description,
       price: product.price,
       image: product.image,
+      size: 'M',
     })
     openCart()
   }
@@ -108,4 +110,3 @@ export function ProductCard({ product }: ProductCardProps) {
     </article>
   )
 }
-
