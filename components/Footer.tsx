@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer
-      className="px-8 py-16 md:py-24"
+      className="px-4 md:px-8 py-8 md:py-24"
       aria-labelledby="footer-title"
     >
       <div className="max-w-[1376px] mx-auto">
@@ -9,54 +9,54 @@ export function Footer() {
           Basement - Wear Everyday
         </h2>
         
-        <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="flex flex-row items-center gap-4 md:gap-8">
           {/* Decorative Ellipses */}
           <div className="flex-shrink-0" aria-hidden="true">
             <svg
-              className="w-32 h-48 md:w-40 md:h-56"
-              viewBox="0 0 160 224"
+              className="w-[114px] h-[64px] md:w-40 md:h-56"
+              viewBox="0 0 114 64"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <ellipse
-                cx="80"
-                cy="40"
-                rx="78"
-                ry="38"
+                cx="57"
+                cy="12"
+                rx="55"
+                ry="10"
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 fill="none"
               />
               <ellipse
-                cx="80"
-                cy="112"
-                rx="78"
-                ry="38"
+                cx="57"
+                cy="32"
+                rx="55"
+                ry="10"
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 fill="none"
               />
               <ellipse
-                cx="80"
-                cy="184"
-                rx="78"
-                ry="38"
+                cx="57"
+                cy="52"
+                rx="55"
+                ry="10"
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 fill="none"
               />
             </svg>
           </div>
 
           {/* Typography */}
-          <div className="flex-1 text-center md:text-left" aria-hidden="true">
-            <div className="font-basement text-[clamp(3rem,12vw,10rem)] leading-[0.9] uppercase tracking-tight">
+          <div className="flex-1 text-right" aria-hidden="true">
+            <div className="font-basement text-[54px] md:text-[clamp(3rem,12vw,10rem)] leading-[1.06] uppercase tracking-tight">
               Wear
             </div>
             <div
-              className="font-basement text-[clamp(3rem,12vw,10rem)] leading-[0.9] uppercase tracking-tight"
+              className="font-basement text-[54px] md:text-[clamp(3rem,12vw,10rem)] leading-[1.06] uppercase tracking-tight"
               style={{
-                WebkitTextStroke: '2px white',
+                WebkitTextStroke: '1px white',
                 WebkitTextFillColor: 'transparent',
               }}
             >
@@ -68,4 +68,3 @@ export function Footer() {
     </footer>
   )
 }
-

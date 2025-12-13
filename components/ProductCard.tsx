@@ -38,7 +38,7 @@ export function ProductCard({ product }: ProductCardProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image Container */}
-      <div className="relative h-[500px] md:h-[578px] overflow-hidden">
+      <div className="relative h-[392px] md:h-[578px] overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] to-transparent" />
         

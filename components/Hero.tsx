@@ -1,111 +1,126 @@
 export function Hero() {
   return (
     <section
-      className="relative pt-32 pb-8 px-8"
+      className="relative pt-[126px] pb-[60px] px-[32px]"
       aria-labelledby="hero-title"
     >
-      <div className="max-w-[1376px] mx-auto relative">
-        {/* EST Badge - Left */}
-        <div className="absolute left-0 top-[45%] -translate-y-1/2 hidden lg:block">
-          <svg
-            className="w-[160px] h-[126px]"
-            viewBox="0 0 160 126"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse cx="80" cy="63" rx="78" ry="61" stroke="white" strokeWidth="2" fill="none" />
-            <text
-              x="80"
-              y="70"
-              textAnchor="middle"
-              fill="white"
-              className="font-basement text-2xl uppercase"
-              style={{ fontSize: '24px' }}
-            >
-              EST
-            </text>
-          </svg>
-        </div>
-
-        {/* 2K19 Badge - Right */}
-        <div className="absolute right-0 top-[30%] -translate-y-1/2 hidden lg:block">
-          <svg
-            className="w-[144px] h-[108px]"
-            viewBox="0 0 144 108"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse cx="72" cy="54" rx="70" ry="52" stroke="white" strokeWidth="2" fill="none" />
-            <text
-              x="72"
-              y="62"
-              textAnchor="middle"
-              fill="white"
-              className="font-basement text-xl uppercase"
-              style={{ fontSize: '20px' }}
-            >
-              2K19
-            </text>
-          </svg>
-        </div>
-
-        {/* Cross decoration - Left */}
-        <div className="absolute left-[5%] bottom-[15%] hidden lg:block">
-          <svg
-            className="w-20 h-20 rotate-12"
-            viewBox="0 0 80 80"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M40 0L44 36L80 40L44 44L40 80L36 44L0 40L36 36L40 0Z"
-              stroke="white"
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
-        </div>
-
-        {/* Cross decoration - Right */}
-        <div className="absolute right-[5%] bottom-[5%] hidden lg:block">
-          <svg
-            className="w-24 h-24 -rotate-12"
-            viewBox="0 0 80 80"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M40 0L44 36L80 40L44 44L40 80L36 44L0 40L36 36L40 0Z"
-              stroke="white"
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
-        </div>
-
+      {/* Main Typography Container */}
+      <div className="w-full">
         {/* Main Typography */}
         <h1 id="hero-title" className="sr-only">
           Basement Supply - Wear Everyday
         </h1>
         <div
-          className="text-center"
+          className="w-full flex flex-col"
           aria-hidden="true"
         >
-          <div className="font-basement text-[clamp(4rem,15vw,12rem)] leading-[0.85] uppercase tracking-tight">
-            Basement
-          </div>
-          <div
-            className="font-basement text-[clamp(4rem,15vw,12rem)] leading-[0.85] uppercase tracking-tight"
-            style={{
-              WebkitTextStroke: '2px white',
-              WebkitTextFillColor: 'transparent',
+          {/* BASEMENT - Responsive, fills available width */}
+          <div 
+            className="font-basement text-white uppercase leading-none w-full"
+            style={{ 
+              fontSize: 'calc((100vw - 64px) / 6.5)',
             }}
           >
-            Supply
+            BASEMENT
+          </div>
+          
+          {/* SUPPLY row - Centered with ellipses */}
+          <div className="relative flex items-center justify-center w-full mt-[10px]">
+            {/* Star Left - Mobile only */}
+            <svg
+              className="md:hidden w-[51px] h-[24px] mr-2 flex-shrink-0"
+              viewBox="0 0 51 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.5 0L27 10.5L51 12L27 13.5L25.5 24L24 13.5L0 12L24 10.5L25.5 0Z"
+                stroke="white"
+                strokeWidth="1.5"
+                fill="none"
+              />
+            </svg>
+            
+            {/* Ellipse Left with EST - Tablet/Desktop, responsive */}
+            <div className="hidden md:flex items-center justify-center flex-shrink-0 relative w-[10vw] max-w-[152px] min-w-[80px]">
+              <svg
+                className="w-full h-auto"
+                viewBox="0 0 152 72"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M129.098 60.101C142.724 53.646 150.5 45.024 150.5 36C150.5 26.976 142.724 18.354 129.098 11.9C115.587 5.49999 96.8149 1.5 75.9999 1.5C55.1847 1.5 36.4134 5.49999 22.902 11.9C9.2762 18.354 1.5 26.976 1.5 36C1.5 45.024 9.2762 53.646 22.902 60.101C36.4134 66.501 55.1847 70.5 75.9999 70.5C96.8149 70.5 115.587 66.501 129.098 60.101ZM75.9999 72C117.974 72 152 55.883 152 36C152 16.118 117.974 0 75.9999 0C34.0264 0 0 16.118 0 36C0 55.883 34.0264 72 75.9999 72Z"
+                  fill="white"
+                />
+              </svg>
+              <span className="absolute font-basement text-[clamp(10px,1vw,16px)] uppercase text-white">EST</span>
+            </div>
+
+            {/* SUPPLY SVG - Tablet/Desktop, responsive width */}
+            <svg
+              className="hidden md:block flex-1 h-auto"
+              viewBox="0 0 992 175"
+              preserveAspectRatio="xMidYMid meet"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M50.64 111.3V115.42C50.64 124.592 52.105 128.764 56.092 131.106C58.242 132.368 61.315 133.221 65.773 133.736C70.213 134.248 75.839 134.408 82.984 134.408C90.02 134.408 95.597 134.275 100.014 133.908C104.451 133.539 107.582 132.942 109.79 132.08C111.942 131.241 113.116 130.191 113.816 128.916C114.555 127.572 114.904 125.731 114.904 123.052C114.904 121.076 114.486 119.665 113.65 118.51C112.789 117.32 111.338 116.198 108.899 115.096C103.942 112.856 95.734 111.042 82.63 108.485C68.657 106.19 60.376 104.297 39.118 99.437L37.799 99.136L37.791 99.134C23.889 95.844 14.909 92.163 9.644 84.368C4.46 76.692 3.17999 65.43 3.17999 48.004C3.17999 29.744 6.99899 17.319 19.518 9.774C25.641 6.083 33.699 3.65701 44.064 2.14101C54.44 0.623006 67.257 0 82.984 0C99.12 0 112.085 0.556013 122.439 2.17001C132.788 3.78401 140.705 6.48001 146.614 10.891C158.565 19.811 161.516 35.117 161.516 59.24V63.36H110.876V59.24C110.876 50.374 109.791 46.1 106.449 43.656C104.7 42.377 102.135 41.446 98.264 40.855C94.403 40.266 89.425 40.04 82.984 40.04C75.952 40.04 70.424 40.199 66.078 40.614C61.711 41.031 58.683 41.694 56.577 42.625C54.542 43.525 53.418 44.648 52.738 46.062C52.016 47.563 51.7 49.587 51.7 52.456C51.7 54.325 52.049 55.617 52.76 56.645C53.485 57.694 54.75 58.704 57.032 59.68C61.696 61.675 69.73 63.186 83.265 65.104L83.316 65.111L83.367 65.121C108.393 69.999 120.117 72.555 134.611 76.605C146.23 79.803 153.764 83.365 158.139 90.794C162.404 98.036 163.424 108.603 163.424 124.96C163.424 144.913 160.66 157.851 148.453 165.354C142.494 169.017 134.461 171.264 123.845 172.617C113.211 173.972 99.805 174.448 82.984 174.448C65.684 174.448 51.865 173.892 40.884 172.284C29.913 170.677 21.591 167.995 15.417 163.611C2.89599 154.721 0 139.435 0 115.42V111.3H50.64ZM134.076 78.532C119.66 74.504 108 71.96 82.984 67.084C56.06 63.268 49.7 60.936 49.7 52.456C49.7 40.584 54.788 38.04 82.984 38.04C108.848 38.04 112.876 41.644 112.876 59.24V61.36H159.516V59.24C159.516 10.904 147.432 2 82.984 2C20.232 2 5.17999 11.964 5.17999 48.004C5.17999 82.984 10.48 90.616 38.252 97.188L39.527 97.48C60.834 102.35 69.055 104.229 82.984 106.516C109.06 111.604 116.904 113.936 116.904 123.052C116.904 134.288 111.18 136.408 82.984 136.408C54.364 136.408 48.64 133.864 48.64 115.42V113.3H2V115.42C2 163.544 13.872 172.448 82.984 172.448C150.188 172.448 161.424 164.816 161.424 124.96C161.424 92.1 157.184 84.892 134.076 78.532ZM337.917 2.54401V102.064C337.917 116.939 337.202 128.932 335.115 138.529C333.022 148.153 329.518 155.508 323.84 160.959C318.17 166.402 310.531 169.754 300.535 171.759C290.556 173.76 278.073 174.448 262.565 174.448C247.057 174.448 234.573 173.76 224.594 171.759C214.598 169.754 206.96 166.402 201.29 160.959C195.612 155.508 192.108 148.153 190.014 138.529C187.927 128.932 187.213 116.939 187.213 102.064V2.54401H235.733V102.064C235.733 109.298 236.012 114.935 236.78 119.34C237.547 123.742 238.773 126.74 240.538 128.842C244.03 133.001 250.281 134.408 262.565 134.408C274.849 134.408 281.099 133.001 284.591 128.842C286.356 126.74 287.583 123.742 288.35 119.34C289.117 114.935 289.397 109.298 289.397 102.064V2.54401H337.917ZM335.917 4.54401V102.064C335.917 161.424 324.469 172.448 262.565 172.448C200.661 172.448 189.213 161.424 189.213 102.064V4.54401H233.733V102.064C233.733 131.108 238.185 136.408 262.565 136.408C286.945 136.408 291.397 131.108 291.397 102.064V4.54401H335.917ZM363.974 2.54401H460.526C482.18 2.54401 496.734 5.52801 505.732 14.697C514.717 23.853 517.646 38.657 517.646 60.724V69.204C517.646 90.642 514.924 105.124 506.589 114.423C498.22 123.76 484.649 127.378 464.448 128.441L464.395 128.444H412.494V171.904H363.974V2.54401ZM410.494 169.904H365.974V4.54401H460.526C503.774 4.54401 515.646 16.628 515.646 60.724V69.204C515.646 112.028 504.622 124.324 464.342 126.444H410.494V169.904ZM412.494 42.584V86.284H449.078C453.708 86.284 457.242 86.057 459.967 85.462C462.664 84.873 464.423 83.953 465.65 82.665C466.886 81.367 467.776 79.493 468.343 76.627C468.913 73.744 469.126 70.021 469.126 65.176C469.126 60.01 468.913 56.026 468.339 52.934C467.766 49.851 466.863 47.824 465.609 46.423C464.373 45.044 462.618 44.074 459.942 43.453C457.23 42.824 453.706 42.584 449.078 42.584H412.494ZM540.529 2.54401H637.081C658.735 2.54401 673.289 5.52801 682.287 14.697C691.272 23.853 694.201 38.657 694.201 60.724V69.204C694.201 90.642 691.479 105.124 683.143 114.423C674.774 123.76 661.204 127.378 641.002 128.441L640.95 128.444H589.049V171.904H540.529V2.54401ZM587.049 169.904H542.529V4.54401H637.081C680.329 4.54401 692.201 16.628 692.201 60.724V69.204C692.201 112.028 681.177 124.324 640.897 126.444H587.049V169.904ZM589.049 42.584V86.284H625.633C630.262 86.284 633.797 86.057 636.522 85.462C639.218 84.873 640.978 83.953 642.205 82.665C643.441 81.367 644.331 79.493 644.898 76.627C645.468 73.744 645.681 70.021 645.681 65.176C645.681 60.01 645.468 56.026 644.893 52.934C644.32 49.851 643.417 47.824 642.163 46.423C640.928 45.044 639.173 44.074 636.497 43.453C633.784 42.824 630.26 42.584 625.633 42.584H589.049ZM717.084 2.54401H765.604V129.744H839.596V171.904H717.084V2.54401ZM837.596 131.744V169.904H719.084V4.54401H763.604V131.744H837.596ZM991.696 2.54401L931.586 111.483V171.904H883.066V111.491L821.866 2.54401H877.396L907.546 62.847L938.326 2.54401H991.696ZM876.166 4.54401H825.276L885.066 110.968V169.904H929.586V110.968L988.306 4.54401H939.546L908.176 66.024H906.896L876.166 4.54401ZM410.494 88.284H449.078C467.734 88.284 471.126 84.68 471.126 65.176C471.126 44.4 467.734 40.584 449.078 40.584H410.494V88.284ZM587.049 88.284H625.633C644.289 88.284 647.681 84.68 647.681 65.176C647.681 44.4 644.289 40.584 625.633 40.584H587.049V88.284Z"
+                fill="white"
+              />
+            </svg>
+            
+            {/* SUPPLY text - Mobile only */}
+            <div
+              className="md:hidden font-basement text-[12vw] leading-[0.85] uppercase tracking-[-0.02em] text-center"
+              style={{
+                WebkitTextStroke: '2px white',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Supply
+            </div>
+
+            {/* Ellipse Right with 2K19 - Tablet/Desktop, responsive */}
+            <div className="hidden md:flex items-center justify-center flex-shrink-0 relative w-[10vw] max-w-[152px] min-w-[80px]">
+              <svg
+                className="w-full h-auto"
+                viewBox="0 0 152 72"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M129.1 60.101C142.72 53.646 150.5 45.024 150.5 36C150.5 26.976 142.72 18.354 129.1 11.9C115.59 5.49999 96.82 1.5 76 1.5C55.18 1.5 36.41 5.49999 22.9 11.9C9.28002 18.354 1.5 26.976 1.5 36C1.5 45.024 9.28002 53.646 22.9 60.101C36.41 66.501 55.18 70.5 76 70.5C96.82 70.5 115.59 66.501 129.1 60.101ZM76 72C117.97 72 152 55.883 152 36C152 16.118 117.97 0 76 0C34.03 0 0 16.118 0 36C0 55.883 34.03 72 76 72Z"
+                  fill="white"
+                />
+              </svg>
+              <span className="absolute font-basement text-[clamp(10px,1vw,16px)] uppercase text-white">2K19</span>
+            </div>
+
+            {/* Star Right - Mobile only */}
+            <svg
+              className="md:hidden w-[51px] h-[24px] ml-2 flex-shrink-0"
+              viewBox="0 0 51 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.5 0L27 10.5L51 12L27 13.5L25.5 24L24 13.5L0 12L24 10.5L25.5 0Z"
+                stroke="white"
+                strokeWidth="1.5"
+                fill="none"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
