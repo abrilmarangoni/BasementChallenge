@@ -1,7 +1,13 @@
 export function Hero() {
   return (
     <section
-      className="relative pt-[126px] pb-[60px] px-[32px]"
+      className="relative"
+      style={{
+        paddingTop: 'calc(100vw * 126 / 1440)',
+        paddingBottom: 'calc(100vw * 56 / 1440)',
+        paddingLeft: 'calc(100vw * 32 / 1440)',
+        paddingRight: 'calc(100vw * 32 / 1440)',
+      }}
       aria-labelledby="hero-title"
     >
       {/* Main Typography Container */}
@@ -41,7 +47,7 @@ export function Hero() {
           </svg>
           
           {/* SUPPLY row - Centered with ellipses */}
-          <div className="relative flex items-center justify-center w-full mt-[10px]">
+          <div className="relative flex items-center justify-between w-full" style={{ marginTop: 'calc(100vw * 10 / 1440)' }}>
             {/* Star Left - Mobile only */}
             <svg
               className="md:hidden w-[51px] h-[24px] mr-2 flex-shrink-0"
@@ -57,10 +63,13 @@ export function Hero() {
               />
             </svg>
             
-            {/* Ellipse Left with EST - Tablet/Desktop, scales with viewport (11% of content area) */}
+            {/* Ellipse Left with EST - Tablet/Desktop, scales with viewport */}
             <div 
               className="hidden md:flex items-center justify-center flex-shrink-0"
-              style={{ width: 'calc((100vw - 64px) * 0.1104)' }}
+              style={{ 
+                width: 'calc(100vw * 152 / 1440)',
+                marginLeft: 'calc(100vw * 24 / 1440)'
+              }}
             >
               <svg
                 className="w-full h-auto"
@@ -76,19 +85,19 @@ export function Hero() {
                   fill="white"
                 />
                 {/* E */}
-                <path transform="translate(55, 28)" d="M0 0V15.6H12.78V12H4.2V9.40002H11.76V6H4.2V3.60001H12.78V0H0Z" fill="black"/>
+                <path transform="translate(55, 28)" d="M0 0V15.6H12.78V12H4.2V9.40002H11.76V6H4.2V3.60001H12.78V0H0Z" fill="white"/>
                 {/* S */}
-                <path transform="translate(70, 28)" d="M4.39999 10.7V10.5H0V10.7C0 15.24 1.11999 16.08 7.63979 16.08C13.9798 16.08 15.0398 15.36 15.0398 11.6C15.0398 8.50001 14.6398 7.82 12.4598 7.22C11.0998 6.84 9.99979 6.60001 7.63979 6.14001C5.09999 5.78001 4.5 5.56001 4.5 4.76001C4.5 3.64001 4.97999 3.39999 7.63979 3.39999C10.0798 3.39999 10.4598 3.73999 10.4598 5.39999V5.60001H14.8598V5.39999C14.8598 0.839994 13.7198 0 7.63979 0C1.71999 0 0.299995 0.939996 0.299995 4.34C0.299995 7.64 0.799998 8.36001 3.42 8.98001C5.52 9.46001 6.29979 9.63999 7.63979 9.85999C10.0998 10.34 10.8398 10.56 10.8398 11.42C10.8398 12.48 10.2998 12.68 7.63979 12.68C4.93999 12.68 4.39999 12.44 4.39999 10.7Z" fill="black"/>
+                <path transform="translate(70, 28)" d="M4.39999 10.7V10.5H0V10.7C0 15.24 1.11999 16.08 7.63979 16.08C13.9798 16.08 15.0398 15.36 15.0398 11.6C15.0398 8.50001 14.6398 7.82 12.4598 7.22C11.0998 6.84 9.99979 6.60001 7.63979 6.14001C5.09999 5.78001 4.5 5.56001 4.5 4.76001C4.5 3.64001 4.97999 3.39999 7.63979 3.39999C10.0798 3.39999 10.4598 3.73999 10.4598 5.39999V5.60001H14.8598V5.39999C14.8598 0.839994 13.7198 0 7.63979 0C1.71999 0 0.299995 0.939996 0.299995 4.34C0.299995 7.64 0.799998 8.36001 3.42 8.98001C5.52 9.46001 6.29979 9.63999 7.63979 9.85999C10.0998 10.34 10.8398 10.56 10.8398 11.42C10.8398 12.48 10.2998 12.68 7.63979 12.68C4.93999 12.68 4.39999 12.44 4.39999 10.7Z" fill="white"/>
                 {/* T */}
-                <path transform="translate(87, 28)" d="M4.78 15.6H8.98V3.40002H13.8V0H0V3.40002H4.78V15.6Z" fill="black"/>
+                <path transform="translate(87, 28)" d="M4.78 15.6H8.98V3.40002H13.8V0H0V3.40002H4.78V15.6Z" fill="white"/>
               </svg>
             </div>
 
-            {/* SUPPLY SVG - Tablet/Desktop, scales with viewport (72% of content area) */}
+            {/* SUPPLY SVG - Tablet/Desktop, scales with viewport (992px at 1440px) */}
             <svg
               className="hidden md:block"
               style={{ 
-                width: 'calc((100vw - 64px) * 0.7207)',
+                width: 'calc(100vw * 992 / 1440)',
                 height: 'auto'
               }}
               viewBox="0 0 992 175"
@@ -114,10 +123,13 @@ export function Hero() {
               Supply
             </div>
 
-            {/* Ellipse Right with 2K19 - Tablet/Desktop, scales with viewport (11% of content area) */}
+            {/* Ellipse Right with 2K19 - Tablet/Desktop, scales with viewport */}
             <div 
               className="hidden md:flex items-center justify-center flex-shrink-0"
-              style={{ width: 'calc((100vw - 64px) * 0.1104)' }}
+              style={{ 
+                width: 'calc(100vw * 152 / 1440)',
+                marginRight: 'calc(100vw * 24 / 1440)'
+              }}
             >
               <svg
                 className="w-full h-auto"
@@ -133,13 +145,13 @@ export function Hero() {
                   fill="white"
                 />
                 {/* 2 */}
-                <path transform="translate(52, 28)" d="M12.74 15.84V12.44H5.90002L10.52 8.51999C12.28 7.01999 12.54 6.52 12.62 4C12.74 0.8 11.7 0 6.30005 0C0.880049 0 0.0799561 0.839994 0.0799561 5.39999V5.60001H4.07996V5.39999C4.07996 3.73999 4.56003 3.20001 6.28003 3.20001C8.06003 3.20001 8.54004 3.64001 8.54004 4.76001C8.54004 5.76001 8.04002 6.26 6.90002 7.22L0 13.04V15.84H12.74Z" fill="black"/>
+                <path transform="translate(52, 28)" d="M12.74 15.84V12.44H5.90002L10.52 8.51999C12.28 7.01999 12.54 6.52 12.62 4C12.74 0.8 11.7 0 6.30005 0C0.880049 0 0.0799561 0.839994 0.0799561 5.39999V5.60001H4.07996V5.39999C4.07996 3.73999 4.56003 3.20001 6.28003 3.20001C8.06003 3.20001 8.54004 3.64001 8.54004 4.76001C8.54004 5.76001 8.04002 6.26 6.90002 7.22L0 13.04V15.84H12.74Z" fill="white"/>
                 {/* K */}
-                <path transform="translate(67, 28)" d="M0 15.6H4.19995V9.34H6.41992L9.95996 15.6H14.76L9.69995 7.44L14.5599 0H9.95996L6.29993 5.74002H4.19995V0H0V15.6Z" fill="black"/>
+                <path transform="translate(67, 28)" d="M0 15.6H4.19995V9.34H6.41992L9.95996 15.6H14.76L9.69995 7.44L14.5599 0H9.95996L6.29993 5.74002H4.19995V0H0V15.6Z" fill="white"/>
                 {/* 1 */}
-                <path transform="translate(84, 28)" d="M3.80005 15.6H7.59998V0H4C4 2.04 3.56007 2.42001 1.82007 2.42001H0V5.22H3.80005V15.6Z" fill="black"/>
+                <path transform="translate(84, 28)" d="M3.80005 15.6H7.59998V0H4C4 2.04 3.56007 2.42001 1.82007 2.42001H0V5.22H3.80005V15.6Z" fill="white"/>
                 {/* 9 */}
-                <path transform="translate(94, 28)" d="M0 5.17999V5.82001C0 9.66001 0.980059 10.5 4.56006 10.5C7.00006 10.5 8.28003 9.81999 8.78003 8.07999V11.48C8.78003 12.82 8.39997 13.08 6.21997 13.08C4.75997 13.08 4.45996 12.92 4.45996 12H0.459961C0.459961 15.38 1.21999 16 6.35999 16C11.64 16 12.58 15.34 12.58 11.76V4.51999C12.54 1.01999 11.26 0 6.38 0C1 0 0 0.819993 0 5.17999ZM4 5.39999V5.38C4 3.52 4.34 3.20001 6.38 3.20001C8.44 3.20001 8.78003 3.44001 8.78003 4.70001V5.95999C8.78003 7.11999 8.18001 7.39999 6.38 7.39999C4.34 7.39999 4 7.07999 4 5.39999Z" fill="black"/>
+                <path transform="translate(94, 28)" d="M0 5.17999V5.82001C0 9.66001 0.980059 10.5 4.56006 10.5C7.00006 10.5 8.28003 9.81999 8.78003 8.07999V11.48C8.78003 12.82 8.39997 13.08 6.21997 13.08C4.75997 13.08 4.45996 12.92 4.45996 12H0.459961C0.459961 15.38 1.21999 16 6.35999 16C11.64 16 12.58 15.34 12.58 11.76V4.51999C12.54 1.01999 11.26 0 6.38 0C1 0 0 0.819993 0 5.17999ZM4 5.39999V5.38C4 3.52 4.34 3.20001 6.38 3.20001C8.44 3.20001 8.78003 3.44001 8.78003 4.70001V5.95999C8.78003 7.11999 8.18001 7.39999 6.38 7.39999C4.34 7.39999 4 7.07999 4 5.39999Z" fill="white"/>
               </svg>
             </div>
 
