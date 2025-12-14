@@ -88,27 +88,31 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Title - Mobile: both words stretch full width */}
+            {/* Title - Mobile: text sized to fill container width */}
             <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10">
               <h2
                 id="cart-title"
                 className="font-basement md:hidden w-full uppercase"
               >
                 <div 
-                  className="text-[104px] leading-[1.02] text-white w-full flex justify-between"
-                  style={{ fontWeight: 700 }}
+                  className="leading-[1.02] text-white w-full"
+                  style={{ 
+                    fontWeight: 700,
+                    fontSize: 'calc((100vw - 32px) * 0.30)',
+                  }}
                 >
-                  <span>Y</span><span>O</span><span>U</span><span>R</span>
+                  YOUR
                 </div>
                 <div 
-                  className="text-[104px] leading-[1.02] w-full flex justify-between"
+                  className="leading-[1.02] w-full"
                   style={{ 
                     fontWeight: 700,
                     color: 'transparent',
                     WebkitTextStroke: '1.5px white',
+                    fontSize: 'calc((100vw - 32px) * 0.30)',
                   }}
                 >
-                  <span>C</span><span>A</span><span>R</span><span>T</span>
+                  CART
                 </div>
               </h2>
               
