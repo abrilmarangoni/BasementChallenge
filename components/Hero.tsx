@@ -47,13 +47,12 @@ export function Hero() {
           </svg>
           
           {/* SUPPLY row - Centered with ellipses */}
-          <div className="relative flex items-center justify-between w-full" style={{ marginTop: 'clamp(5px, calc(100vw * 10 / 1440), 15px)' }}>
+          <div className="relative flex items-center justify-center w-full gap-[10px]" style={{ marginTop: 'clamp(5px, calc(100vw * 10 / 1440), 15px)' }}>
             {/* Ellipse Left with EST - Always visible, scales with viewport */}
             <div 
               className="flex items-center justify-center flex-shrink-0"
               style={{ 
-                width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
-                marginLeft: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
+                width: 'clamp(60px, calc(100vw * 152 / 1440), 200px)',
               }}
             >
               <svg
@@ -101,8 +100,7 @@ export function Hero() {
             <div 
               className="flex items-center justify-center flex-shrink-0"
               style={{ 
-                width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
-                marginRight: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
+                width: 'clamp(60px, calc(100vw * 152 / 1440), 200px)',
               }}
             >
               <svg
