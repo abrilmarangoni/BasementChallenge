@@ -14,14 +14,15 @@ export function Footer() {
         </h2>
         
         {/* First row: Ellipses + WEAR */}
-        <div className="flex items-center justify-end" style={{ gap: '50px' }}>
+        <div className="flex items-center justify-end" style={{ gap: '20px' }}>
           {/* Decorative Ellipses with vertical line */}
           <div 
             className="flex-shrink-0" 
             aria-hidden="true"
           >
             <svg
-              className="w-[180px] h-[100px] md:w-[312px] md:h-[177px]"
+              className="w-full h-auto"
+              style={{ width: 'clamp(120px, calc(100vw * 312 / 1440), 312px)' }}
               viewBox="0 0 312 177"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +50,7 @@ export function Footer() {
           <div className="flex-shrink-0" aria-hidden="true">
             <svg 
               className="h-auto"
-              style={{ width: '809px', maxWidth: '100%' }}
+              style={{ width: 'clamp(200px, calc(100vw * 809 / 1440), 809px)' }}
               viewBox="0 0 809 174" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,7 @@ export function Footer() {
         </div>
 
         {/* Second row: EVERYDAY */}
-        <div style={{ marginTop: '50px' }} aria-hidden="true">
+        <div style={{ marginTop: '20px' }} aria-hidden="true">
           <svg 
             className="w-full h-auto"
             viewBox="0 0 1368 179" 
