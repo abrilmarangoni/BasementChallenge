@@ -98,7 +98,7 @@ export function CartDrawer() {
                   className="leading-[1.02] text-white w-full"
                   style={{ 
                     fontWeight: 700,
-                    fontSize: 'calc((100vw - 32px) * 0.30)',
+                    fontSize: 'calc((100vw - 32px) * 0.32)',
                   }}
                 >
                   YOUR
@@ -109,7 +109,7 @@ export function CartDrawer() {
                     fontWeight: 700,
                     color: 'transparent',
                     WebkitTextStroke: '1.5px white',
-                    fontSize: 'calc((100vw - 32px) * 0.30)',
+                    fontSize: 'calc((100vw - 32px) * 0.32)',
                   }}
                 >
                   CART
