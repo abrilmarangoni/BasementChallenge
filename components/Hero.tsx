@@ -3,7 +3,7 @@ export function Hero() {
     <section
       className="relative"
       style={{
-        paddingTop: 'clamp(80px, calc(100vw * 126 / 1440), 180px)',
+        paddingTop: 'calc(clamp(20px, calc(100vw * 33 / 1440), 50px) + 98px + 20px)',
         paddingBottom: 'clamp(32px, calc(100vw * 56 / 1440), 80px)',
         paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 48px)',
         paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 48px)',
@@ -48,24 +48,9 @@ export function Hero() {
           
           {/* SUPPLY row - Centered with ellipses */}
           <div className="relative flex items-center justify-between w-full" style={{ marginTop: 'clamp(5px, calc(100vw * 10 / 1440), 15px)' }}>
-            {/* Star Left - Mobile only */}
-            <svg
-              className="md:hidden w-[51px] h-[24px] mr-2 flex-shrink-0"
-              viewBox="0 0 51 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M25.5 0L27 10.5L51 12L27 13.5L25.5 24L24 13.5L0 12L24 10.5L25.5 0Z"
-                stroke="white"
-                strokeWidth="1.5"
-                fill="none"
-              />
-            </svg>
-            
-            {/* Ellipse Left with EST - Tablet/Desktop, scales with viewport */}
+            {/* Ellipse Left with EST - Always visible, scales with viewport */}
             <div 
-              className="hidden md:flex items-center justify-center flex-shrink-0"
+              className="flex items-center justify-center flex-shrink-0"
               style={{ 
                 width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
                 marginLeft: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
@@ -93,9 +78,9 @@ export function Hero() {
               </svg>
             </div>
 
-            {/* SUPPLY SVG - Tablet/Desktop, scales with viewport (992px at 1440px) */}
+            {/* SUPPLY SVG - Always visible, scales with viewport (992px at 1440px) */}
             <svg
-              className="hidden md:block"
+              className="block"
               style={{ 
                 width: 'clamp(500px, calc(100vw * 992 / 1440), 1400px)',
                 height: 'auto'
@@ -111,21 +96,10 @@ export function Hero() {
                 fill="white"
               />
             </svg>
-            
-            {/* SUPPLY text - Mobile only */}
-            <div
-              className="md:hidden font-basement text-[12vw] leading-[0.85] uppercase tracking-[-0.02em] text-center"
-              style={{
-                WebkitTextStroke: '2px white',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Supply
-            </div>
 
-            {/* Ellipse Right with 2K19 - Tablet/Desktop, scales with viewport */}
+            {/* Ellipse Right with 2K19 - Always visible, scales with viewport */}
             <div 
-              className="hidden md:flex items-center justify-center flex-shrink-0"
+              className="flex items-center justify-center flex-shrink-0"
               style={{ 
                 width: 'clamp(80px, calc(100vw * 152 / 1440), 200px)',
                 marginRight: 'clamp(12px, calc(100vw * 24 / 1440), 36px)'
@@ -154,21 +128,6 @@ export function Hero() {
                 <path transform="translate(94, 28)" d="M0 5.17999V5.82001C0 9.66001 0.980059 10.5 4.56006 10.5C7.00006 10.5 8.28003 9.81999 8.78003 8.07999V11.48C8.78003 12.82 8.39997 13.08 6.21997 13.08C4.75997 13.08 4.45996 12.92 4.45996 12H0.459961C0.459961 15.38 1.21999 16 6.35999 16C11.64 16 12.58 15.34 12.58 11.76V4.51999C12.54 1.01999 11.26 0 6.38 0C1 0 0 0.819993 0 5.17999ZM4 5.39999V5.38C4 3.52 4.34 3.20001 6.38 3.20001C8.44 3.20001 8.78003 3.44001 8.78003 4.70001V5.95999C8.78003 7.11999 8.18001 7.39999 6.38 7.39999C4.34 7.39999 4 7.07999 4 5.39999Z" fill="white"/>
               </svg>
             </div>
-
-            {/* Star Right - Mobile only */}
-            <svg
-              className="md:hidden w-[51px] h-[24px] ml-2 flex-shrink-0"
-              viewBox="0 0 51 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M25.5 0L27 10.5L51 12L27 13.5L25.5 24L24 13.5L0 12L24 10.5L25.5 0Z"
-                stroke="white"
-                strokeWidth="1.5"
-                fill="none"
-              />
-            </svg>
           </div>
         </div>
       </div>
