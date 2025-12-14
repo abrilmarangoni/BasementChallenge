@@ -88,31 +88,27 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Title - Mobile: stacked layout, Desktop: side by side */}
+            {/* Title - Mobile: both words stretch full width */}
             <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10">
-              {/* Mobile Title - aligned with product card container */}
               <h2
                 id="cart-title"
-                className="font-basement md:hidden w-full"
-                style={{
-                  textTransform: 'uppercase',
-                }}
+                className="font-basement md:hidden w-full uppercase"
               >
                 <div 
-                  className="text-[104px] leading-[1.02] text-white text-left w-full block"
+                  className="text-[104px] leading-[1.02] text-white w-full flex justify-between"
                   style={{ fontWeight: 700 }}
                 >
-                  YOUR
+                  <span>Y</span><span>O</span><span>U</span><span>R</span>
                 </div>
                 <div 
-                  className="text-[104px] leading-[1.02] text-right w-full block"
+                  className="text-[104px] leading-[1.02] w-full flex justify-between"
                   style={{ 
                     fontWeight: 700,
                     color: 'transparent',
                     WebkitTextStroke: '1.5px white',
                   }}
                 >
-                  CART
+                  <span>C</span><span>A</span><span>R</span><span>T</span>
                 </div>
               </h2>
               
