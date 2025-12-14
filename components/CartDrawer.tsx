@@ -88,32 +88,54 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Title - Mobile: text sized to fill container width */}
+            {/* Title - Mobile: SVG text scales to fill container width exactly */}
             <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10">
               <h2
                 id="cart-title"
-                className="font-basement md:hidden w-full uppercase"
+                className="md:hidden w-full"
               >
-                <div 
-                  className="leading-[1.02] text-white w-full"
-                  style={{ 
-                    fontWeight: 700,
-                    fontSize: 'calc((100vw - 32px) * 0.32)',
-                  }}
+                {/* YOUR - solid white */}
+                <svg 
+                  viewBox="0 0 344 106" 
+                  className="w-full h-auto block"
+                  preserveAspectRatio="xMidYMid meet"
                 >
-                  YOUR
-                </div>
-                <div 
-                  className="leading-[1.02] w-full"
-                  style={{ 
-                    fontWeight: 700,
-                    color: 'transparent',
-                    WebkitTextStroke: '1.5px white',
-                    fontSize: 'calc((100vw - 32px) * 0.32)',
-                  }}
+                  <text
+                    x="0"
+                    y="85"
+                    className="font-basement"
+                    style={{
+                      fontSize: '104px',
+                      fontWeight: 700,
+                      fill: 'white',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    YOUR
+                  </text>
+                </svg>
+                {/* CART - outline white */}
+                <svg 
+                  viewBox="0 0 344 106" 
+                  className="w-full h-auto block"
+                  preserveAspectRatio="xMidYMid meet"
                 >
-                  CART
-                </div>
+                  <text
+                    x="0"
+                    y="85"
+                    className="font-basement"
+                    style={{
+                      fontSize: '104px',
+                      fontWeight: 700,
+                      fill: 'transparent',
+                      stroke: 'white',
+                      strokeWidth: '1.5px',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    CART
+                  </text>
+                </svg>
               </h2>
               
               {/* Desktop Title */}
