@@ -88,17 +88,18 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Title - Mobile: SVG text scales to fill container width exactly */}
+            {/* Title - Mobile: SVG text stretches to fill container width exactly */}
             <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10">
               <h2
                 id="cart-title"
                 className="md:hidden w-full"
               >
-                {/* YOUR - solid white */}
+                {/* YOUR - solid white, stretches to fill width */}
                 <svg 
-                  viewBox="0 0 344 106" 
-                  className="w-full h-auto block"
-                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 280 106" 
+                  className="w-full block"
+                  style={{ height: 'auto', aspectRatio: '344/106' }}
+                  preserveAspectRatio="none"
                 >
                   <text
                     x="0"
@@ -108,17 +109,17 @@ export function CartDrawer() {
                       fontSize: '104px',
                       fontWeight: 700,
                       fill: 'white',
-                      textTransform: 'uppercase',
                     }}
                   >
                     YOUR
                   </text>
                 </svg>
-                {/* CART - outline white */}
+                {/* CART - outline white, stretches to fill width */}
                 <svg 
-                  viewBox="0 0 344 106" 
-                  className="w-full h-auto block"
-                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 260 106" 
+                  className="w-full block"
+                  style={{ height: 'auto', aspectRatio: '344/106' }}
+                  preserveAspectRatio="none"
                 >
                   <text
                     x="0"
@@ -130,7 +131,6 @@ export function CartDrawer() {
                       fill: 'transparent',
                       stroke: 'white',
                       strokeWidth: '1.5px',
-                      textTransform: 'uppercase',
                     }}
                   >
                     CART
