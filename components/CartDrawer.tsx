@@ -93,19 +93,19 @@ export function CartDrawer() {
               {/* Mobile Title - aligned with product card container */}
               <h2
                 id="cart-title"
-                className="font-basement md:hidden flex flex-col w-full"
+                className="font-basement md:hidden w-full"
                 style={{
                   textTransform: 'uppercase',
                 }}
               >
-                <span 
-                  className="text-[104px] leading-[1.02] text-white text-left"
+                <div 
+                  className="text-[104px] leading-[1.02] text-white text-left w-full block"
                   style={{ fontWeight: 700 }}
                 >
                   YOUR
-                </span>
-                <span 
-                  className="text-[104px] leading-[1.02] text-right"
+                </div>
+                <div 
+                  className="text-[104px] leading-[1.02] text-right w-full block"
                   style={{ 
                     fontWeight: 700,
                     color: 'transparent',
@@ -113,7 +113,7 @@ export function CartDrawer() {
                   }}
                 >
                   CART
-                </span>
+                </div>
               </h2>
               
               {/* Desktop Title */}
