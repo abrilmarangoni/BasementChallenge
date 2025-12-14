@@ -7,7 +7,7 @@ export function FloatingShapes() {
       <div 
         className="absolute pointer-events-none z-20 hidden md:block"
         style={{
-          width: 'clamp(80px, calc(100vw * 160 / 1440), 200px)',
+          width: 'clamp(60px, calc(100vw * 130 / 1440), 160px)',
           height: 'auto',
           bottom: '-80px',
           left: 'clamp(20px, calc(100vw * 30 / 1440), 50px)',
@@ -68,7 +68,7 @@ export function FloatingShapes() {
       <div 
         className="absolute pointer-events-none z-20 hidden md:block"
         style={{
-          width: 'clamp(72px, calc(100vw * 144 / 1440), 180px)',
+          width: 'clamp(55px, calc(100vw * 120 / 1440), 150px)',
           height: 'auto',
           top: '-72px',
           right: 'clamp(20px, calc(100vw * 30 / 1440), 50px)',

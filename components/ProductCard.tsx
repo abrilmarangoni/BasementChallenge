@@ -121,8 +121,6 @@ export function ProductCard({ product }: ProductCardProps) {
             className="relative w-[180px] h-[180px] flex items-center justify-center cursor-pointer group/btn"
             aria-label={`Add ${product.name} to cart`}
           >
-            {/* Dark background behind globe */}
-            <div className="absolute inset-0 rounded-full bg-black/80 backdrop-blur-sm" />
             {/* 3D Globe */}
             <div className="absolute inset-0">
               <Globe size={180} />

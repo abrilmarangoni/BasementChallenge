@@ -12,7 +12,6 @@ export function CartDrawer() {
     items,
     isOpen,
     closeCart,
-    removeItem,
     updateQuantity,
     updateSize,
     totalPrice,
@@ -41,7 +40,8 @@ export function CartDrawer() {
   }, [isOpen, handleKeyDown])
 
   const formatPrice = (price: number) => {
-    return price % 1 === 0 ? `$${price}` : `$${price.toFixed(2)}`
+    const formatted = price.toFixed(2).replace('.', ',')
+    return `$${formatted}`
   }
 
   return (
@@ -65,99 +65,147 @@ export function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-[824px] bg-black border-l border-white z-50 flex flex-col"
+            className="fixed bg-black border-l border-white z-50 flex flex-col w-full md:w-[60vw] h-screen md:h-[80vh] md:border-b"
+            style={{ 
+              maxWidth: '824px',
+              top: 0,
+              right: 0,
+            }}
             role="dialog"
             aria-modal="true"
             aria-labelledby="cart-title"
           >
             {/* Close Button */}
-            <div className="flex justify-end p-8">
+            <div className="flex justify-end px-4 md:px-8 pt-3 md:pt-10">
               <button
                 ref={firstFocusableRef}
                 onClick={closeCart}
-                className="font-basement text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                className="font-basement text-[14px] md:text-[24px] uppercase tracking-wider hover:opacity-70 transition-opacity"
+                style={{ lineHeight: '0.8' }}
                 aria-label="Close cart"
               >
                 → Close
               </button>
             </div>
 
-            {/* Title */}
-            <div className="px-8 pb-8">
+            {/* Title - Mobile: stacked layout, Desktop: side by side */}
+            <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10">
+              {/* Mobile Title */}
               <h2
                 id="cart-title"
-                className="font-basement text-[72px] leading-none uppercase tracking-tight"
+                className="font-basement md:hidden flex flex-col items-start"
+                style={{
+                  textTransform: 'uppercase',
+                }}
               >
-                <span className="text-white">YOUR</span>{' '}
-                <span className="text-white [-webkit-text-stroke:1px_white] [text-stroke:1px_white]" style={{ color: 'transparent' }}>
+                <span 
+                  className="text-[104px] leading-[1.02] text-white"
+                  style={{ fontWeight: 700 }}
+                >
+                  YOUR
+                </span>
+                <span 
+                  className="text-[104px] leading-[1.02]"
+                  style={{ 
+                    fontWeight: 700,
+                    color: 'transparent',
+                    WebkitTextStroke: '1.5px white',
+                  }}
+                >
                   CART
                 </span>
+              </h2>
+              
+              {/* Desktop Title */}
+              <h2
+                className="font-basement hidden md:flex justify-between items-start w-[760px]"
+                style={{
+                  height: '89.47px',
+                  fontSize: '111px',
+                  fontWeight: 700,
+                  lineHeight: '80.5%',
+                  textTransform: 'uppercase',
+                  WebkitTextStrokeWidth: '1.5px',
+                  WebkitTextStrokeColor: '#FFF',
+                }}
+              >
+                <span style={{ color: '#FFF' }}>YOUR</span>
+                <span style={{ color: 'transparent' }}>CART</span>
               </h2>
             </div>
 
             {/* Cart Items */}
-            <div className="flex-1 overflow-y-auto px-8">
+            <div className="flex-1 overflow-y-auto px-4 md:px-8">
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
-                  <p className="font-basement text-2xl text-white/60 mb-6">
+                  <p className="font-basement text-xl md:text-2xl text-white/60 mb-6">
                     Your cart is empty
                   </p>
                   <button
                     onClick={closeCart}
-                    className="px-8 py-4 border border-white font-basement uppercase hover:bg-white hover:text-black transition-colors"
+                    className="px-6 md:px-8 py-3 md:py-4 border border-white font-basement uppercase hover:bg-white hover:text-black transition-colors text-sm md:text-base"
                   >
                     Continue Shopping
                   </button>
                 </div>
               ) : (
-                <ul className="space-y-8">
+                <ul className="space-y-4 md:space-y-6">
                   {items.map((item) => (
                     <li
                       key={`${item.id}-${item.size}`}
-                      className="border border-white/20 p-4 flex gap-6"
+                      className="border border-white flex flex-row w-full md:w-[760px]"
                     >
                       {/* Item Image */}
-                      <div className="w-[234px] h-[231px] bg-[#1d1d1d] flex-shrink-0 flex items-center justify-center">
+                      <div className="w-[104px] h-[122px] md:w-[234px] md:h-[231px] flex-shrink-0 relative">
+                        {/* Gradient overlay */}
+                        <div 
+                          className="absolute inset-0 z-10"
+                          style={{
+                            background: 'linear-gradient(to top, rgba(21,21,21,0) 0%, #1d1d1d 100%)',
+                            transform: 'rotate(180deg)',
+                          }}
+                        />
                         <Image
                           src={item.image}
                           alt={item.name}
-                          width={200}
-                          height={200}
-                          className="w-full h-full object-contain p-4"
+                          width={226}
+                          height={218}
+                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-contain z-0 w-[98px] h-[98px] md:w-auto md:h-auto"
+                          style={{ filter: 'drop-shadow(0px 1.8px 9.45px rgba(0,0,0,0.2))' }}
                         />
                       </div>
 
-                      {/* Item Details */}
-                      <div className="flex-1 flex flex-col justify-between py-2">
+                      {/* Item Details + Price */}
+                      <div className="flex-1 flex flex-col justify-between p-2 md:p-4 md:pl-6 relative">
                         <div>
-                          <h3 className="font-basement text-[28px] uppercase leading-tight">
+                          <h3 className="font-basement text-[14px] md:text-[35px] uppercase leading-tight">
                             {item.name}
                           </h3>
                           {item.description && (
-                            <p className="text-white/60 text-sm mt-1">
+                            <p className="text-[#999] text-[11px] md:text-[21px] mt-0.5 md:mt-1 font-basement leading-tight">
                               {item.description}
                             </p>
                           )}
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-1.5 md:space-y-3 mt-2 md:mt-4">
                           {/* Quantity */}
-                          <div className="flex items-center gap-4">
-                            <span className="text-white/60 uppercase text-sm tracking-wider">
+                          <div className="flex items-center gap-2 md:gap-4">
+                            <span className="font-basement text-[11px] md:text-[21px] uppercase">
                               Quantity:
                             </span>
-                            <div className="flex items-center border border-white/30">
+                            <div className="flex items-center border border-white rounded-full h-[19px] md:h-[35px] px-1 md:px-2">
                               <button
                                 onClick={() =>
                                   updateQuantity(item.id, item.size, item.quantity - 1)
                                 }
-                                className="w-10 h-10 flex items-center justify-center hover:bg-white/10 transition-colors text-lg"
+                                className="w-4 md:w-7 h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement text-[11px] md:text-[21px]"
                                 aria-label={`Decrease quantity of ${item.name}`}
                               >
                                 -
                               </button>
                               <span
-                                className="w-10 h-10 flex items-center justify-center border-x border-white/30"
+                                className="w-3 md:w-7 h-full flex items-center justify-center font-basement text-[11px] md:text-[21px]"
                                 aria-label={`Quantity: ${item.quantity}`}
                               >
                                 {item.quantity}
@@ -166,7 +214,7 @@ export function CartDrawer() {
                                 onClick={() =>
                                   updateQuantity(item.id, item.size, item.quantity + 1)
                                 }
-                                className="w-10 h-10 flex items-center justify-center hover:bg-white/10 transition-colors text-lg"
+                                className="w-4 md:w-7 h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement text-[11px] md:text-[21px]"
                                 aria-label={`Increase quantity of ${item.name}`}
                               >
                                 +
@@ -175,19 +223,19 @@ export function CartDrawer() {
                           </div>
 
                           {/* Size */}
-                          <div className="flex items-center gap-4">
-                            <span className="text-white/60 uppercase text-sm tracking-wider">
+                          <div className="flex items-center gap-2 md:gap-4">
+                            <span className="font-basement text-[11px] md:text-[21px] uppercase">
                               Size:
                             </span>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 md:gap-4">
                               {SIZES.map((size) => (
                                 <button
                                   key={size}
                                   onClick={() => updateSize(item.id, item.size, size)}
-                                  className={`w-10 h-10 flex items-center justify-center border text-sm uppercase transition-colors ${
+                                  className={`font-basement text-[11px] md:text-[21px] uppercase transition-all ${
                                     item.size === size
-                                      ? 'bg-white text-black border-white'
-                                      : 'border-white/30 hover:border-white'
+                                      ? 'w-[19px] h-[19px] md:w-[35px] md:h-[35px] flex items-center justify-center border border-white rounded-full'
+                                      : 'hover:opacity-70'
                                   }`}
                                   aria-label={`Select size ${size}`}
                                   aria-pressed={item.size === size}
@@ -198,11 +246,16 @@ export function CartDrawer() {
                             </div>
                           </div>
                         </div>
+
+                        {/* Price - Mobile: bottom right absolute, Desktop: separate column */}
+                        <span className="font-basement text-[14px] md:hidden absolute bottom-2 right-2 text-right">
+                          {formatPrice(item.price * item.quantity)}
+                        </span>
                       </div>
 
-                      {/* Price */}
-                      <div className="flex flex-col justify-end">
-                        <span className="font-basement text-[28px]">
+                      {/* Price - Desktop only */}
+                      <div className="hidden md:flex flex-col justify-end p-4">
+                        <span className="font-basement text-[35px] text-right">
                           {formatPrice(item.price * item.quantity)}
                         </span>
                       </div>
@@ -214,18 +267,49 @@ export function CartDrawer() {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="border-t border-white flex">
-                <div className="flex-1 px-8 py-6 border-r border-white flex items-center">
-                  <span className="font-basement text-[28px] uppercase">
-                    Total: {formatPrice(totalPrice())}
+              <div className="mt-auto">
+                {/* Total row */}
+                <div className="px-4 md:px-8 py-3 md:py-0 flex items-center justify-between md:justify-start md:border-t md:border-white md:h-[88px]">
+                  <span className="font-basement text-[20px] md:text-[35px] uppercase tracking-[1px]">
+                    Total
+                  </span>
+                  <span className="font-basement text-[20px] md:text-[35px] md:hidden">
+                    {formatPrice(totalPrice())}
+                  </span>
+                  <span className="hidden md:inline font-basement text-[35px] ml-2">
+                    : {formatPrice(totalPrice())}
                   </span>
                 </div>
-                <button
-                  className="px-12 py-6 font-basement text-[28px] uppercase hover:bg-white hover:text-black transition-colors"
-                  aria-label="Proceed to checkout"
-                >
-                  Checkout
-                </button>
+                
+                {/* Divider line - Mobile only */}
+                <div className="mx-4 border-t border-white md:hidden" />
+                
+                {/* Checkout button */}
+                <div className="md:border-t md:border-white md:flex">
+                  <div className="hidden md:flex flex-1 px-8 items-center border-r border-white h-[88px]">
+                    <span className="font-basement text-[35px] uppercase tracking-[1px]">
+                      Total: {formatPrice(totalPrice())}
+                    </span>
+                  </div>
+                  <button
+                    className="w-full md:w-auto px-4 md:px-12 py-4 md:py-0 flex items-center justify-center font-basement text-[48px] md:text-[35px] uppercase tracking-[4px] md:tracking-[1px] hover:bg-white hover:text-black transition-colors md:h-[88px]"
+                    style={{
+                      color: 'transparent',
+                      WebkitTextStroke: '1px white',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = 'black'
+                      ;(e.currentTarget.style as unknown as Record<string, string>).webkitTextStroke = '0'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'transparent'
+                      ;(e.currentTarget.style as unknown as Record<string, string>).webkitTextStroke = '1px white'
+                    }}
+                    aria-label="Proceed to checkout"
+                  >
+                    Checkout
+                  </button>
+                </div>
               </div>
             )}
           </motion.aside>
