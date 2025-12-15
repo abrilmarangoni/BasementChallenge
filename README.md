@@ -1,15 +1,9 @@
-# Basement Challenge
+# Basement — Frontend Dev Challenge
 
-E-commerce landing page built with Next.js, TypeScript, and Tailwind CSS.
+This project was built as part of a 2-day frontend challenge for Basement.
 
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+The goal was to replicate a provided Figma design for an e-commerce landing page, focusing on UI accuracy, interactions, performance, and overall polish.
+Any missing details were handled using common sense, as suggested in the brief.
 
 ## Tech Stack
 
@@ -18,8 +12,31 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 - Tailwind CSS
 - Zustand
 - Framer Motion
+- Vercel
 
-## Deployment
+## What's Included
 
-This project is configured for Vercel deployment.
+- Responsive hero built with SVG typography
+- Marquee with seamless looping animation
+- Product grid with:
+  - Desktop hover interactions
+  - Mobile-friendly add-to-cart behavior
+- Animated cart drawer (opens from the right)
+  - Closes on ESC or click outside
+  - Zustand-based cart state with quantity, size, and total calculation
+  - Fly-to-cart animation
+- Fixed header with scroll-based styling
+- Fully responsive layout
+- Subtle motion and micro-interactions
 
+## Notes
+
+- Based on Basement's original Figma file
+- Time-boxed to ~2 days
+- Scope was adjusted when needed, but polish was always prioritized
+
+This was a fun challenge!
+
+Made by Abie Marangoni
+
+Time invested: ~14 hours across 2 days (33 commits)
