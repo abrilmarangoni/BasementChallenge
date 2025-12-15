@@ -88,50 +88,114 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Title */}
-            <div className="px-4 md:px-8 pt-4 pb-6 md:pb-10 flex justify-center md:justify-start">
-              {/* Mobile Title - exact Figma styles */}
-              <h2
-                id="cart-title"
-                className="md:hidden font-basement uppercase text-center"
-                style={{
-                  width: '344px',
-                  height: '214px',
-                  fontSize: '104px',
-                  lineHeight: '102%',
-                }}
-              >
-                <div className="font-basement text-white">YOUR</div>
-                <div 
-                  className="font-basement"
-                  style={{ 
-                    color: 'transparent',
-                    WebkitTextStrokeWidth: '1.5px',
-                    WebkitTextStrokeColor: '#FFF',
-                  }}
+            {/* Shared Container for Title and Content */}
+            <div className="flex-1 overflow-y-auto flex flex-col">
+              {/* Title - same container as product cards */}
+              <div className="px-4 md:px-8 pb-6 md:pb-10 w-full" style={{ paddingTop: '30px' }}>
+                {/* Mobile Title - Exact Figma specs: 344x214, 104px, line-height 102% */}
+                <h2
+                  id="cart-title"
+                  className="md:hidden w-full"
+                  style={{ marginBottom: '16px' }}
                 >
-                  CART
-                </div>
-              </h2>
-              
-              {/* Desktop Title */}
-              <h2
-                className="font-basement hidden md:flex justify-between items-start w-[760px] uppercase"
-                style={{
-                  height: '89.47px',
-                  fontSize: '111px',
-                  lineHeight: '80.5%',
-                  WebkitTextStrokeWidth: '1.5px',
-                  WebkitTextStrokeColor: '#FFF',
-                }}
-              >
-                <span style={{ color: '#FFF' }}>YOUR</span>
-                <span style={{ color: 'transparent' }}>CART</span>
-              </h2>
-            </div>
+                  {/* YOUR CART - SVG that scales to fill container width */}
+                  <svg 
+                    className="w-full h-auto"
+                    viewBox="0 0 344 214"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    {/* YOUR - solid fill */}
+                    <text
+                      x="172"
+                      y="95"
+                      textAnchor="middle"
+                      className="font-basement"
+                      style={{
+                        fontSize: '104px',
+                        fontWeight: 700,
+                        fill: 'white',
+                        fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      YOUR
+                    </text>
+                    {/* CART - outline stroke */}
+                    <text
+                      x="172"
+                      y="201"
+                      textAnchor="middle"
+                      className="font-basement"
+                      style={{
+                        fontSize: '104px',
+                        fontWeight: 700,
+                        fill: 'none',
+                        stroke: 'white',
+                        strokeWidth: '1.5px',
+                        fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      CART
+                    </text>
+                  </svg>
+                </h2>
+                
+                {/* Desktop Title - Responsive SVG that scales with container */}
+                <h2
+                  className="hidden md:block w-full"
+                  style={{ overflow: 'visible' }}
+                >
+                  <svg 
+                    className="w-full h-auto"
+                    viewBox="0 0 760 89"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ overflow: 'visible' }}
+                  >
+                    {/* YOUR - solid fill, aligned left */}
+                    <text
+                      x="0"
+                      y="75"
+                      textAnchor="start"
+                      dominantBaseline="auto"
+                      className="font-basement"
+                      style={{
+                        fontSize: '111px',
+                        fontWeight: 700,
+                        fill: 'white',
+                        fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      YOUR
+                    </text>
+                    {/* CART - outline stroke, aligned right */}
+                    <text
+                      x="760"
+                      y="75"
+                      textAnchor="end"
+                      dominantBaseline="auto"
+                      className="font-basement"
+                      style={{
+                        fontSize: '111px',
+                        fontWeight: 700,
+                        fill: 'none',
+                        stroke: 'white',
+                        strokeWidth: '1.5px',
+                        fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      CART
+                    </text>
+                  </svg>
+                </h2>
+              </div>
 
-            {/* Cart Items */}
-            <div className="flex-1 overflow-y-auto px-4 md:px-8">
+              {/* Cart Items - same container padding */}
+              <div className="px-4 md:px-8">
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <p className="font-basement text-xl md:text-2xl text-white/60 mb-6">
@@ -149,10 +213,16 @@ export function CartDrawer() {
                   {items.map((item) => (
                     <li
                       key={`${item.id}-${item.size}`}
-                      className="border border-white flex flex-row w-full md:w-[760px]"
+                      className="border border-white flex flex-row w-full"
                     >
                       {/* Item Image */}
-                      <div className="w-[104px] h-[122px] md:w-[234px] md:h-[231px] flex-shrink-0 relative">
+                      <div 
+                        className="flex-shrink-0 relative"
+                        style={{
+                          width: 'clamp(104px, calc(100vw * 234 / 1440), 234px)',
+                          height: 'clamp(122px, calc(100vw * 231 / 1440), 231px)',
+                        }}
+                      >
                         {/* Gradient overlay */}
                         <div 
                           className="absolute inset-0 z-10"
@@ -174,11 +244,17 @@ export function CartDrawer() {
                       {/* Item Details + Price */}
                       <div className="flex-1 flex flex-col justify-between p-2 md:p-4 md:pl-6 relative">
                         <div>
-                          <h3 className="font-basement text-[14px] md:text-[35px] uppercase leading-tight">
+                          <h3 
+                            className="font-basement uppercase leading-tight"
+                            style={{ fontSize: 'clamp(14px, calc(100vw * 35 / 1440), 35px)' }}
+                          >
                             {item.name}
                           </h3>
                           {item.description && (
-                            <p className="text-[#999] text-[11px] md:text-[21px] mt-0.5 md:mt-1 font-basement leading-tight">
+                            <p 
+                              className="text-[#999] mt-0.5 md:mt-1 font-basement leading-tight"
+                              style={{ fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)' }}
+                            >
                               {item.description}
                             </p>
                           )}
@@ -187,21 +263,35 @@ export function CartDrawer() {
                         <div className="space-y-1.5 md:space-y-3 mt-2 md:mt-4">
                           {/* Quantity */}
                           <div className="flex items-center gap-2 md:gap-4">
-                            <span className="font-basement text-[11px] md:text-[21px] uppercase">
+                            <span 
+                              className="font-basement uppercase"
+                              style={{ fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)' }}
+                            >
                               Quantity:
                             </span>
-                            <div className="flex items-center border border-white rounded-full h-[19px] md:h-[35px] px-1 md:px-2">
+                            <div 
+                              className="flex items-center border border-white rounded-full px-1 md:px-2"
+                              style={{ height: 'clamp(19px, calc(100vw * 35 / 1440), 35px)' }}
+                            >
                               <button
                                 onClick={() =>
                                   updateQuantity(item.id, item.size, item.quantity - 1)
                                 }
-                                className="w-4 md:w-7 h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement text-[11px] md:text-[21px]"
+                                className="h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement"
+                                style={{ 
+                                  width: 'clamp(16px, calc(100vw * 28 / 1440), 28px)',
+                                  fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)',
+                                }}
                                 aria-label={`Decrease quantity of ${item.name}`}
                               >
                                 -
                               </button>
                               <span
-                                className="w-3 md:w-7 h-full flex items-center justify-center font-basement text-[11px] md:text-[21px]"
+                                className="h-full flex items-center justify-center font-basement"
+                                style={{ 
+                                  width: 'clamp(12px, calc(100vw * 28 / 1440), 28px)',
+                                  fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)',
+                                }}
                                 aria-label={`Quantity: ${item.quantity}`}
                               >
                                 {item.quantity}
@@ -210,7 +300,11 @@ export function CartDrawer() {
                                 onClick={() =>
                                   updateQuantity(item.id, item.size, item.quantity + 1)
                                 }
-                                className="w-4 md:w-7 h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement text-[11px] md:text-[21px]"
+                                className="h-full flex items-center justify-center hover:opacity-70 transition-opacity font-basement"
+                                style={{ 
+                                  width: 'clamp(16px, calc(100vw * 28 / 1440), 28px)',
+                                  fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)',
+                                }}
                                 aria-label={`Increase quantity of ${item.name}`}
                               >
                                 +
@@ -220,7 +314,10 @@ export function CartDrawer() {
 
                           {/* Size */}
                           <div className="flex items-center gap-2 md:gap-4">
-                            <span className="font-basement text-[11px] md:text-[21px] uppercase">
+                            <span 
+                              className="font-basement uppercase"
+                              style={{ fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)' }}
+                            >
                               Size:
                             </span>
                             <div className="flex items-center gap-2 md:gap-4">
@@ -228,11 +325,18 @@ export function CartDrawer() {
                                 <button
                                   key={size}
                                   onClick={() => updateSize(item.id, item.size, size)}
-                                  className={`font-basement text-[11px] md:text-[21px] uppercase transition-all ${
+                                  className={`font-basement uppercase transition-all ${
                                     item.size === size
-                                      ? 'w-[19px] h-[19px] md:w-[35px] md:h-[35px] flex items-center justify-center border border-white rounded-full'
+                                      ? 'flex items-center justify-center border border-white rounded-full'
                                       : 'hover:opacity-70'
                                   }`}
+                                  style={{ 
+                                    fontSize: 'clamp(11px, calc(100vw * 21 / 1440), 21px)',
+                                    ...(item.size === size ? {
+                                      width: 'clamp(19px, calc(100vw * 35 / 1440), 35px)',
+                                      height: 'clamp(19px, calc(100vw * 35 / 1440), 35px)',
+                                    } : {}),
+                                  }}
                                   aria-label={`Select size ${size}`}
                                   aria-pressed={item.size === size}
                                 >
@@ -244,14 +348,20 @@ export function CartDrawer() {
                         </div>
 
                         {/* Price - Mobile: bottom right absolute, Desktop: separate column */}
-                        <span className="font-basement text-[14px] md:hidden absolute bottom-2 right-2 text-right">
+                        <span 
+                          className="font-basement md:hidden absolute bottom-2 right-2 text-right"
+                          style={{ fontSize: 'clamp(14px, calc(100vw * 35 / 1440), 35px)' }}
+                        >
                           {formatPrice(item.price * item.quantity)}
                         </span>
                       </div>
 
                       {/* Price - Desktop only */}
                       <div className="hidden md:flex flex-col justify-end p-4">
-                        <span className="font-basement text-[35px] text-right">
+                        <span 
+                          className="font-basement text-right"
+                          style={{ fontSize: 'clamp(24px, calc(100vw * 35 / 1440), 35px)' }}
+                        >
                           {formatPrice(item.price * item.quantity)}
                         </span>
                       </div>
@@ -259,21 +369,27 @@ export function CartDrawer() {
                   ))}
                 </ul>
               )}
+              </div>
             </div>
 
             {/* Footer */}
             {items.length > 0 && (
               <div className="mt-auto">
-                {/* Total row */}
-                <div className="px-4 md:px-8 py-3 md:py-0 flex items-center justify-between md:justify-start md:border-t md:border-white md:h-[88px]">
-                  <span className="font-basement text-[20px] md:text-[35px] uppercase tracking-[1px]">
+                {/* Mobile Total row */}
+                <div 
+                  className="px-4 py-3 flex items-center justify-between md:hidden"
+                >
+                  <span 
+                    className="font-basement uppercase tracking-[1px]"
+                    style={{ fontSize: 'clamp(20px, calc(100vw * 35 / 1440), 35px)' }}
+                  >
                     Total
                   </span>
-                  <span className="font-basement text-[20px] md:text-[35px] md:hidden">
+                  <span 
+                    className="font-basement"
+                    style={{ fontSize: 'clamp(20px, calc(100vw * 35 / 1440), 35px)' }}
+                  >
                     {formatPrice(totalPrice())}
-                  </span>
-                  <span className="hidden md:inline font-basement text-[35px] ml-2">
-                    : {formatPrice(totalPrice())}
                   </span>
                 </div>
                 
@@ -282,14 +398,54 @@ export function CartDrawer() {
                 
                 {/* Checkout button */}
                 <div className="md:border-t md:border-white md:flex">
-                  <div className="hidden md:flex flex-1 px-8 items-center border-r border-white h-[88px]">
-                    <span className="font-basement text-[35px] uppercase tracking-[1px]">
-                      Total: {formatPrice(totalPrice())}
-                    </span>
+                  <div 
+                    className="hidden md:flex flex-1 px-8 items-center border-r border-white"
+                    style={{ height: 'clamp(60px, calc(100vw * 88 / 1440), 88px)' }}
+                  >
+                    <div className="w-full">
+                      <span 
+                        className="font-basement uppercase tracking-[1px]"
+                        style={{ fontSize: 'clamp(24px, calc(100vw * 35 / 1440), 35px)' }}
+                      >
+                        Total: {formatPrice(totalPrice())}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="w-full px-4 py-4 md:hidden">
+                    <button
+                      className="w-full flex items-center justify-start hover:opacity-70 transition-opacity"
+                      aria-label="Proceed to checkout"
+                    >
+                      {/* CHECKOUT - SVG with text element using Basement Grotesque font */}
+                      <svg 
+                        className="w-full h-auto"
+                        viewBox="0 0 700 80"
+                        preserveAspectRatio="xMinYMin meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <text
+                          x="0"
+                          y="65"
+                          className="font-basement"
+                          style={{
+                            fontSize: '80px',
+                            fontWeight: 700,
+                            fill: 'none',
+                            stroke: 'white',
+                            strokeWidth: '1px',
+                            fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                          }}
+                        >
+                          CHECKOUT
+                        </text>
+                      </svg>
+                    </button>
                   </div>
                   <button
-                    className="w-full md:w-auto px-4 md:px-12 py-4 md:py-0 flex items-center justify-center font-basement text-[48px] md:text-[35px] uppercase tracking-[4px] md:tracking-[1px] hover:bg-white hover:text-black transition-colors md:h-[88px]"
+                    className="hidden md:flex w-auto px-12 py-0 items-center justify-center font-basement uppercase tracking-[1px] hover:bg-white hover:text-black transition-colors"
                     style={{
+                      height: 'clamp(60px, calc(100vw * 88 / 1440), 88px)',
+                      fontSize: 'clamp(24px, calc(100vw * 35 / 1440), 35px)',
                       color: 'transparent',
                       WebkitTextStroke: '1px white',
                     }}
