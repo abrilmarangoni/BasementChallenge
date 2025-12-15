@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
     images: [
       {
-        url: '/basementog.png',
+        url: 'https://basement-challenge.vercel.app/basementog.png',
         width: 1200,
         height: 630,
         alt: 'Basement Supply - Premium Streetwear',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Basement Supply | Premium Streetwear',
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
-    images: ['/basementog.png'],
+    images: ['https://basement-challenge.vercel.app/basementog.png'],
   },
   robots: {
     index: true,
