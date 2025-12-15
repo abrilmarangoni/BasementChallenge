@@ -414,29 +414,32 @@ export function CartDrawer() {
                       </span>
                     </div>
                   </div>
-                  <div className="w-full px-4 py-4 md:hidden">
+                  <div className="w-full py-4 md:hidden">
                     <button
-                      className="w-full flex items-center justify-start hover:opacity-70 transition-opacity"
+                      className="w-full flex items-center justify-center hover:opacity-70 transition-opacity"
                       aria-label="Proceed to checkout"
                     >
-                      {/* CHECKOUT - SVG with text element using Basement Grotesque font */}
+                      {/* CHECKOUT - SVG that scales to fill container width like YOUR CART */}
                       <svg 
                         className="w-full h-auto"
-                        viewBox="0 0 700 80"
-                        preserveAspectRatio="xMinYMin meet"
+                        viewBox="0 0 344 50"
+                        preserveAspectRatio="xMidYMid meet"
                         xmlns="http://www.w3.org/2000/svg"
+                        style={{ overflow: 'visible' }}
                       >
                         <text
-                          x="0"
-                          y="65"
+                          x="172"
+                          y="40"
+                          textAnchor="middle"
                           className="font-basement"
                           style={{
-                            fontSize: '80px',
+                            fontSize: '50px',
                             fontWeight: 700,
                             fill: 'none',
                             stroke: 'white',
-                            strokeWidth: '1px',
+                            strokeWidth: '1.5px',
                             fontFamily: 'var(--font-basement), "Basement Grotesque", sans-serif',
+                            textTransform: 'uppercase',
                           }}
                         >
                           CHECKOUT
