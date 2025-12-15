@@ -22,17 +22,17 @@ export const metadata: Metadata = {
   authors: [{ name: 'Basement Studio' }],
   creator: 'Basement Studio',
   publisher: 'Basement Studio',
-  metadataBase: new URL('https://basement-challenge.vercel.app'),
+  metadataBase: new URL('https://basement-challenge-nine.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://basement-challenge.vercel.app',
+    url: 'https://basement-challenge-nine.vercel.app',
     siteName: 'Basement Supply',
     title: 'Basement Supply | Premium Streetwear',
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
     images: [
       {
-        url: 'https://basement-challenge.vercel.app/basementog.png',
+        url: 'https://basement-challenge-nine.vercel.app/basementog.png',
         width: 1200,
         height: 630,
         alt: 'Basement Supply - Premium Streetwear',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Basement Supply | Premium Streetwear',
     description: 'A man can\'t have enough basement swag. Shop premium streetwear from Basement Supply.',
-    images: ['https://basement-challenge.vercel.app/basementog.png'],
+    images: ['https://basement-challenge-nine.vercel.app/basementog.png'],
   },
   robots: {
     index: true,
