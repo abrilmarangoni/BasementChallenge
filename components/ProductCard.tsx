@@ -106,7 +106,7 @@ export function ProductCard({ product }: ProductCardProps) {
           />
         </div>
 
-        {/* Globe with Add to Cart - Shows on Hover */}
+        {/* Globe with Add to Cart - Shows on Hover (Desktop only) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{
@@ -114,7 +114,7 @@ export function ProductCard({ product }: ProductCardProps) {
             scale: isHovered ? 1 : 0.8,
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 hidden md:flex items-center justify-center"
         >
           <button
             onClick={handleAddToCart}
@@ -140,6 +140,15 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           </button>
         </motion.div>
+
+        {/* Add to Cart Button - Mobile only, over image */}
+        <button
+          onClick={handleAddToCart}
+          className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 px-6 py-3 text-white font-basement uppercase text-center hover:opacity-70 transition-opacity"
+          aria-label={`Add ${product.name} to cart`}
+        >
+          Add to cart
+        </button>
       </div>
 
       {/* Divider Line */}
