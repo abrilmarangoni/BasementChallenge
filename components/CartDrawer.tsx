@@ -76,12 +76,23 @@ export function CartDrawer() {
             aria-labelledby="cart-title"
           >
             {/* Close Button */}
-            <div className="flex justify-end px-4 md:px-8 pt-3 md:pt-10">
+            <div 
+              className="flex justify-end md:pb-20"
+              style={{ 
+                paddingLeft: 'clamp(16px, calc(100vw * 32 / 1440), 32px)',
+                paddingRight: 'clamp(16px, calc(100vw * 32 / 1440), 32px)',
+                paddingTop: '30px',
+                paddingBottom: '0px',
+              }}
+            >
               <button
                 ref={firstFocusableRef}
                 onClick={closeCart}
-                className="font-basement text-[14px] md:text-[24px] uppercase tracking-wider hover:opacity-70 transition-opacity"
-                style={{ lineHeight: '0.8' }}
+                className="font-basement uppercase tracking-wider hover:opacity-70 transition-opacity md:text-[24px]"
+                style={{ 
+                  fontSize: 'clamp(18px, calc(100vw * 24 / 1440), 24px)',
+                  lineHeight: '0.8',
+                }}
                 aria-label="Close cart"
               >
                 → Close
