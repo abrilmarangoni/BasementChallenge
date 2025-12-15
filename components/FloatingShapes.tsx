@@ -5,12 +5,13 @@ export function FloatingShapes() {
     <>
       {/* Shape 1 - Left side, centered on BOTTOM border line */}
       <div 
-        className="absolute pointer-events-none z-20 hidden md:block"
+        className="absolute pointer-events-none hidden md:block"
         style={{
           width: 'clamp(60px, calc(100vw * 130 / 1440), 160px)',
           height: 'auto',
-          bottom: '-80px',
+          bottom: 'clamp(-60px, calc(100vw * -80 / 1440), -80px)',
           left: 'clamp(20px, calc(100vw * 30 / 1440), 50px)',
+          zIndex: 30,
           animation: 'floatSubtle 6s ease-in-out infinite',
         }}
       >
@@ -66,12 +67,13 @@ export function FloatingShapes() {
 
       {/* Shape 2 - Right side, centered on TOP border line */}
       <div 
-        className="absolute pointer-events-none z-20 hidden md:block"
+        className="absolute pointer-events-none hidden md:block"
         style={{
           width: 'clamp(55px, calc(100vw * 120 / 1440), 150px)',
           height: 'auto',
-          top: '-72px',
+          top: 'clamp(-50px, calc(100vw * -72 / 1440), -72px)',
           right: 'clamp(20px, calc(100vw * 30 / 1440), 50px)',
+          zIndex: 30,
           animation: 'floatSubtle 7s ease-in-out infinite',
         }}
       >

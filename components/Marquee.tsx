@@ -9,6 +9,7 @@ export function Marquee() {
       style={{
         borderTop: '1.5px solid #FFF',
         borderBottom: '1.5px solid #FFF',
+        zIndex: 10,
       }}
       aria-hidden="true"
     >
