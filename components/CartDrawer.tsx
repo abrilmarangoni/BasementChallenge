@@ -357,10 +357,13 @@ export function CartDrawer() {
                       </div>
 
                       {/* Price - Desktop only */}
-                      <div className="hidden md:flex flex-col justify-end p-4">
+                      <div 
+                        className="hidden md:flex flex-col justify-end items-end flex-shrink-0"
+                        style={{ padding: 'clamp(8px, calc(100vw * 16 / 1440), 16px)' }}
+                      >
                         <span 
-                          className="font-basement text-right"
-                          style={{ fontSize: 'clamp(24px, calc(100vw * 35 / 1440), 35px)' }}
+                          className="font-basement text-right whitespace-nowrap"
+                          style={{ fontSize: 'clamp(14px, calc(100vw * 35 / 1440), 35px)' }}
                         >
                           {formatPrice(item.price * item.quantity)}
                         </span>
@@ -399,13 +402,13 @@ export function CartDrawer() {
                 {/* Checkout button */}
                 <div className="md:border-t md:border-white md:flex">
                   <div 
-                    className="hidden md:flex flex-1 px-8 items-center border-r border-white"
-                    style={{ height: 'clamp(60px, calc(100vw * 88 / 1440), 88px)' }}
+                    className="hidden md:flex flex-1 px-4 md:px-8 items-center border-r border-white"
+                    style={{ height: 'clamp(50px, calc(100vw * 88 / 1440), 88px)' }}
                   >
                     <div className="w-full">
                       <span 
-                        className="font-basement uppercase tracking-[1px]"
-                        style={{ fontSize: 'clamp(24px, calc(100vw * 35 / 1440), 35px)' }}
+                        className="font-basement uppercase tracking-[1px] whitespace-nowrap"
+                        style={{ fontSize: 'clamp(16px, calc(100vw * 35 / 1440), 35px)' }}
                       >
                         Total: {formatPrice(totalPrice())}
                       </span>
